@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coke Clicker</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="app">
+        <div  v-if="!menu">
+            <div :class="['menu-container', { 'change': toggled }]" @click="valikko">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <div class="upgrade-container">
+                <div v-for="upgrade in upgrades" class="both" :class="ostettavissa(upgrade) ? '' :'both-disabled'">
+                    <div><img :src="upgrade.image" class="upgrade-photo"></div>
+                    <div :class="ostettavissa(upgrade) ? 'upgrade' :'upgrade upgrade-disabled'" v-on:click="ostettavissa(upgrade) ? osta(upgrade):undefined">
+                        <div>{{ upgrade.nimi }}<div class="count">{{ upgrade.count }}</div></div>
+                        <div>Price: {{(changeNumber("", upgrade.hinta))}}<img class="can-small" src="images/can.png"></div>
+                        <div v-if="upgrade.nimi !== 'Coke cloner'">Produces: {{ upgrade.tuottaa }}<img class="can-small" src="images/can.png">/s</div>
+                        <div v-if="upgrade.nimi === 'Coke cloner'">Double your coke production!</div>
+                    </div>
+                </div>
+            </div>
+            <div class="kuva-container">
+                <img v-on:click="canCount()" class="kuva" src="images/can.png">
+            </div>
+            <div class="bottom">
+                <div class="total-production">{{(changeNumber("floor", produced))}}<img class="can-small" src="images/can.png">/s</div>
+                <div class="ammount">{{(changeNumber("floor" , can, "ammount"))}}<img class="can-small" src="images/can.png"></div>
+                <div v-if="sevenup > 0" class="sevenup">{{(changeNumber("floor", sevenup, "ammount"))}}<img class="can-small" src="images/7up.png"></div>
+            </div>
+        </div>      
+        <div v-else class="game-menu">
+            <div v-if="!guide">
+                <div :class="['menu-container', { 'change': toggled }]" @click="valikko">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+                <div class="valikko">
+                    <div  v-on:click="guideButton()" class="guide-button">Guide</div>
+                    <div v-on:click="save() ;prestigeSave()" class="save-button">Save progress</div>
+                    <div v-on:click="load() ;prestigeLoad()" class="load-button">Load progress</div>
+                    <div v-on:click="prestige()" class="prestige-button">Prestige</div>
+                </div>
+            </div>
+            <div v-else>
+                <div  v-on:click="guideButton()" class="guide-button">Back</div>
+                <div class="ohje">
+                    <div>Everytime you click the coke you get one can,
+                        with cans you can buy upgrades that increase production of cans.
+                        Everytime you buy new upgrade the price of that upgrade will increase
+                        with 10%. Coke cloner will double production of your other upgrades and 
+                        it own price will be 4 times higher. Everytime you get 25 same upgrades it production 
+                        will double. for example Coke factory produces 10 cans per second so if you have 25 they 
+                        produce 20 cans per second each and if you have 50 of them each of them produce 40 cans per second 
+                        and so on. Prestige button in menu resets all upgrades and their prices it also resets all production 
+                        but your cokes will give you 1 7up per million cokes and 7ups will increase your production with 0.02% 
+                        each, so if you have 478 million cokes you'll get 478 7ups so your production would have increased 95,6%.
+                        You can use prestige again still when you will be able to keep old 7ups and you get more of them.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+body {
+    margin: 0;
+}
+html {
+    max-height: 100vh;
+}
+
+.count {
+    display: inline-flex;
+    flex-wrap: wrap;
+    float: right;
+}
+
+.upgrade-photo {
+    display: flex;
+    flex-direction: row;
+    height: 75px;
+    min-width: 75px;
+    max-width: 75px;
+    
+}
+
+.upgradekuvalla {
+    display: flex;
+}
+
+.ammount {
+    margin: 3px;
+    background-color: gray;
+    border: 2px solid black;
+    min-width: fit-content;
+    min-height: 1.7em;
+    display:inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.sevenup {
+    margin: 3px;
+    background-color: gray;
+    border: 2px solid black;
+    min-width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.menu-container {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.valikko {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+}
+
+.upgrade.upgrade-disabled {
+    background-color: gray;
+    height: fit-content;
+}
+
+.upgrade {
+    background-color: rgb(150, 150, 150);
+    font-size: 22px;
+    width: 57vh;
+    display: flex;
+    flex-direction: column;
+    min-height: fit-content;
+    transition-property: "width margin";
+    transition-duration: 0.4s;
+}
+
+.both.both-disabled {
+    display: flex;
+    background-color: gray;
+}
+
+.both {
+    margin-left: 4vh;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(150, 150, 150);
+    border: 1px solid black;
+    width: 95%;
+    transition-property: "width margin";
+    transition-duration: 0.4s;
+}
+
+.both:hover {
+    margin: 0;
+    border: 3px solid black;
+    width: 100%;
+}
+
+.upgrade:active {
+    height: fit-content + 5px;
+}
+
+.upgrade-container {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    align-items: flex-end;
+    height: 100%;
+    float: right;
+    overflow-x: scroll;
+}
+
+.bottom {
+    display: flex;
+    justify-content: flex-start;
+    bottom: 0;
+    position: absolute;
+}
+
+.total-production {
+    margin: 3px;
+    background-color: gray;
+    border: 2px solid black;
+    min-width: fit-content;
+    font-size: 22px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.prestige-button {
+    margin: 3px;
+    transition-duration: 0.5s;
+    background-color: gray;
+    border: 2px solid black;
+    height: 50px;
+    width: 145px;
+    font-size: 22px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.prestige-button:active {
+    size: 95%;
+}
+
+.save-button {
+    margin: 3px;
+    background-color: gray;
+    border: 2px solid black;
+    height: 50px;
+    width: 145px;
+    font-size: 22px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.load-button {
+    margin: 3px;
+    background-color: gray;
+    border: 2px solid black;
+    height: 50px;
+    width: 145px;
+    font-size: 22px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.ohje {
+    max-width: 50vw;
+    display: flex;
+    font-size: 16px;
+}
+
+.guide-button {
+    margin: 3px;
+    background-color: gray;
+    border: 2px solid black;
+    height: 50px;
+    width: 145px;
+    font-size: 22px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.kuva {
+    height: 38vh;
+    transition-property: "height";
+    transition-duration: 0.07s;
+}
+
+.kuva-container {
+    margin-top: 25vh;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.kuva:active {
+    height: 40vh;
+}
+
+.can-small {
+    height: 1em;
+    padding-left: 5px;
+}
+
+@media only screen and (max-width: 700px) {
+.kuva {
+    height: 55vh;
+}
+
+.upgrade {
+    font-size: 20px;
+}
+
+.ammount {
+    font-size: 20px;
+}
+
+.sevenup {
+    font-size: 20px;
+}
+
+.total-production {
+    font-size: 20px;
+}
+}
